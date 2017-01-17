@@ -8,6 +8,6 @@ angular2 for starter
 
 ```
 npm install
-npm start
+node app.js
 ```
 
