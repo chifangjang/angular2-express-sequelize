@@ -1,7 +1,6 @@
 # angular2-express-sequelize
 
 angular2 for starter 
-test
 
 ## Getting Started
 
