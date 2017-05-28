@@ -17,15 +17,15 @@ router.get('/', function(req, res) {
 
 router.post( '/login' , function(req , res ){
 
-        models.Member.findOne({
+      models.Member.findOne({
 			where: { name : req.body.name }
         }).then(function( member ){ 
 
-		if( member.password==req.body.password ){
-			res.send( {'result':true} );
-		}else{
-			res.send( {'result':false} );
-		}
+        if( member.password==req.body.password ){
+          res.send( {'result':true} );
+        }else{
+          res.send( {'result':false} );
+        }
 
 console.log('this is express query from db: '+ member.password);
 console.log('this is express from request : '+ JSON.stringify(req.body, null, 2));
@@ -36,12 +36,11 @@ console.log(' password is : '+req.body.password);
 
 router.get('/create', function(req, res) {
   models.Member.create({
-    username: 'noProbelm9999',
-    password: 8989989898
+    name: 'noProbelm9999',
+    password: 899898
   }).then(function() {
 //    res.send('Hello World!');
-//    res.send({ 'result':true }  );
-    res.send({ 'result': false }  );
+   res.send({ 'result':true }  );
 
 });
 });

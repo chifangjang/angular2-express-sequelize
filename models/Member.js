@@ -3,7 +3,7 @@
 module.exports = function(sequelize, DataTypes) {
   var Member = sequelize.define("Member", {
     name: DataTypes.STRING ,
-	password : DataTypes.INTEGER 
+	  password : DataTypes.INTEGER 
   }, {
     classMethods: {
       associate: function(models) {
