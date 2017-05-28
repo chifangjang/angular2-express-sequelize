@@ -7,8 +7,8 @@ import { AddMemberService } from './addmember.service';
                                                                        
 @Component({                                                           
   selector: 'my-app',                                                  
-  templateUrl : 'app/addmember.component.html',                            
-  styleUrls : [ 'app/login.css' ] ,                                    
+  templateUrl : 'app/addmember/addmember.component.html',                            
+  styleUrls : [ 'app/login/login.css' ] ,                                    
   providers : [ AddMemberService ] ,                                       
                                                                        
 })                                                                     
@@ -29,7 +29,7 @@ error : boolean ;
                                                                        
     console.log('you submitted value:', data['name'] );                
                                                                        
-      this.addMemberService.login( data['name'], data['password'] )        
+      this.addMemberService.login( data['name'], data['password'] )       
       .subscribe(                                                      
         (token: any) => this.router.navigate(['../Home']),             
         () => { this.error = true; }                                   

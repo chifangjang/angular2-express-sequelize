@@ -6,6 +6,8 @@ var express = require('express');
 var router = express.Router();
 var models = require("../models");
 var bcrypt = require('bcrypt');
+var member = require("../controllers/member");
+var record = require("../controllers/purchaseRecord");
 
 
 
@@ -20,8 +22,8 @@ router.post( '/login' , function(req , res ){
       models.Member.findOne({
 			where: { name : req.body.name }
         }).then(function( member ){ 
-
-        if( member.password==req.body.password ){
+console.log("after parsing :"+parseInt(req.body.password));
+        if( member.password==parseInt(req.body.password)  ){
           res.send( {'result':true} );
         }else{
           res.send( {'result':false} );
@@ -30,7 +32,7 @@ router.post( '/login' , function(req , res ){
 console.log('this is express query from db: '+ member.password);
 console.log('this is express from request : '+ JSON.stringify(req.body, null, 2));
 console.log(' password is : '+req.body.password); 
-
+          //  res.sendFile('index.html');
         });
 })
 
@@ -42,7 +44,7 @@ router.get('/create', function(req, res) {
 //    res.send('Hello World!');
    res.send({ 'result':true }  );
 
-});
+  });
 });
 
 router.get('/password' , function( req , res) {
@@ -64,30 +66,14 @@ console.log('compare is false  ~~');
 });
 
 
-
 router.get('/:member_id/purchase/create', function (req, res) {
-  models.Purchase_Record.create({
-    title: 'this is the second task',
-    MemberId : req.params.member_id  
-  }).then(function() {
-    res.send('this is the good start for associate');
-  });
+
+  record.purchaseRecord(req,res);
 });
 
 router.post('/addMember', function (req, res) {
 
-   models.Member.build({
-        name : 'noProbelm9999',
-        password : 12345678
-   })
-   .save()
-   .then(function(){
-
-//  console.log( Member.dataVales) ;
-//  res.send('Hello World!');
-//  res.sendFile('index.html');
-   });
-
+  member.addMember( req,res );  
 });
 
 module.exports = router;

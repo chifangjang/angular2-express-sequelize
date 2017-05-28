@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { RouteConfig, RouterOutlet,ROUTER_PROVIDERS,ROUTER_DIRECTIVES } from '@angular/router-deprecated';
-import { HomeComponent } from './home';
-import { LoginComponent } from './login.component';
-import { AddMemberComponent } from './addMember.component';
+import { HomeComponent } from './home/home';
+import { LoginComponent } from './login/login.component';
+import { AddMemberComponent } from './addmember/addMember.component';
 
 @Component({
   selector: 'my-app',

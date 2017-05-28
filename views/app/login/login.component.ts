@@ -7,8 +7,8 @@ import { LoginService } from './login.service';
 
 @Component({
   selector: 'my-app',
-  templateUrl : 'app/login.component.html',
-  styleUrls : [ 'app/login.css' ] ,
+  templateUrl : '/app/login/login.component.html',
+  styleUrls : [ '/app/login/login.css' ] ,
   providers : [ LoginService ] ,
   
 })
@@ -27,7 +27,7 @@ error : boolean ;
 
     onSubmit( data ) {  
 
-    console.log('you submitted value:', data['name'] );  
+    console.log('login you submitted value:', data['name'] );  
 
       this.loginService.login( data['name'], data['password'] )
       .subscribe(

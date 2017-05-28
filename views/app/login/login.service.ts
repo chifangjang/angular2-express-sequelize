@@ -14,7 +14,7 @@ export class LoginService {
 
   login( username, password ) {
 
-    let body = JSON.stringify({ 'name':'noProbelm9999' , 'password' : password });
+    let body = JSON.stringify({ 'name': username , 'password' : password });
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
